@@ -1,0 +1,3 @@
+spawnBlockMat: BARRIER
+spawnBlockData: 0
+dropBlockOnDeath: false
