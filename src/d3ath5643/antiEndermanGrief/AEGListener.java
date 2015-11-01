@@ -9,6 +9,7 @@ import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.material.MaterialData;
 
 /**
  * Used to drop the block that an enderman has, set the held block 
@@ -35,8 +36,10 @@ public class AEGListener implements Listener {
             Enderman entity = (Enderman) e.getEntity();
             if(entity.getCarriedMaterial().getItemType() != Material.AIR)
             {
-              ItemStack heldItem = new ItemStack(entity.getCarriedMaterial().getItemType());
-              entity.getWorld().dropItem(entity.getLocation(), heldItem);  
+                ItemStack heldItem = new ItemStack(entity.getCarriedMaterial().getItemType(),
+                                                   1,(short)0,
+                                                   entity.getCarriedMaterial().getData());
+                entity.getWorld().dropItem(entity.getLocation(), heldItem);  
             }
         }
     }
